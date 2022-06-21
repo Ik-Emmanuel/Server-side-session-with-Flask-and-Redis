@@ -68,6 +68,11 @@ def get_current_user():
         "email": user.email
     })
 
+@app.route("/logout", methods=["POST"])
+def logout_user():
+    session.pop("user_id")
+    return jsonify({"message": "logout successfully"})
+
 
 if __name__ == "__main__":
     app.run(debug=True)
